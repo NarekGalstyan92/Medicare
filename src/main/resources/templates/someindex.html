@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<a th:if="${currentUser == null}" href="/login">Login</a>
+<a th:if="${currentUser != null}" href="/logout">Logout</a>
+<span th:if="${currentUser != null}" th:text="Welcome + ${currentUser.name}"></span>
+<a th:if="${currentUser == null}" href="/register">Register</a>
+
+Register:
+<form action="/register" method="post"></form>
+
+</body>
+</html>
