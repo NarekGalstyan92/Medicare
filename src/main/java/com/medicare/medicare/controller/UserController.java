@@ -16,7 +16,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/user/veify")
+    @GetMapping("/user/verify")
     public String verifyUser (@RequestParam("email") String email,
                               @RequestParam("token") String token) throws Exception {
         userService.verifyUser(email,token);

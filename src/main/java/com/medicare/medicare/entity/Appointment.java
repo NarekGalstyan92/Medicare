@@ -20,7 +20,7 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToOne
+    @ManyToOne
     private User user;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointmentDateTime;

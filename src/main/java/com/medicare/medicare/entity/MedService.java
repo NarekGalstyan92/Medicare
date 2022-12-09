@@ -19,9 +19,11 @@ public class MedService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String description;
     @Enumerated(EnumType.STRING)
-    private priceChart priceChart;
+    private MedServiceEnum medServiceEnum;
+    private String description;
+    private String priceChart;
+    @ManyToOne
+    private Appointment appointment;
 
 }
