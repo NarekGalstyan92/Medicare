@@ -60,19 +60,57 @@
     <changeSet id="createTableService" author="ngalstyan">
         <createTable tableName="med_service">
             <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="med_service_enum" type="ENUM ('DENTIST', 'CARDIOLOGIST', 'CHIROPRACTOR', 'PEDIATRICIAN')">
                 <constraints nullable="false"/>
             </column>
-            <column name="description" type="varchar(255)"/>
-            <column name="price_chart" type="varchar(255)">
+            <column name="description" type="varchar(255)">
+            <constraints nullable="true"/>
+            </column>
+            <column name="price_chart_min" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="price_chart_max" type="varchar(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="appointment_id" type="int(11)">
                 <constraints nullable="true" foreignKeyName="med_service_app_fk" references="appointment(id)"/>
             </column>
-
+        </createTable>
+    </changeSet>
+    <changeSet id="addMedClinicInfo" author="ngalstyan">
+        <createTable tableName="med_clinic">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="working_days" type="enum('MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN')">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fax" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="open_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="close_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="information" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="contact_phone" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="med_service_id" type="int(11)">
+                <constraints nullable="true" foreignKeyName="clinic_med_service_fk" references="med_service(id)"/>
+            </column>
         </createTable>
     </changeSet>
 
