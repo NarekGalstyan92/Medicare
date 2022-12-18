@@ -28,7 +28,7 @@ public class UserService {
         user.setEnabled(false); // usually it is false and turns true after verification
         user.setVerifyToken(UUID.randomUUID().toString());
         userRepository.save(user);
-//        mailService.sendEmail(user.getEmail(), "Please veify your email", "Hi " + user.getName() + "\n" +
+//        mailService.sendEmail(user.getEmail(), "Please verify your email", "Hi " + user.getName() + "\n" +
 //                "Please verify your account by clicking on this link <a href=\"http://localhost:8080/user/verify?email="
 //                + user.getEmail() + "&token=" + user.getVerifyToken() +"\">Activate</a>");
 

@@ -1,10 +1,8 @@
 package com.medicare.medicare.service;
 
 import com.medicare.medicare.entity.MedService;
-import com.medicare.medicare.entity.User;
 import com.medicare.medicare.exception.DuplicateResourceException;
 import com.medicare.medicare.repository.MedServiceRepository;
-import com.medicare.medicare.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +25,9 @@ public class MedServiceService {
 
     public List<MedService> findServiceById (int id){
        return medServiceRepository.findById(id);
+    }
+
+    public void deleteMedServiceById(MedService medService){
+        medServiceRepository.deleteById(medService.getId());
     }
 }
